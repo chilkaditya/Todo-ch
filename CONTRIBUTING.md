@@ -1,6 +1,6 @@
 # Greetings, contributors!
 
-- Have a look at the [Issues](https://github.com/tusharnankani/ToDoList/issues) section for issues that need to be solved!
+- Have a look at the [Issues](https://github.com/chilkaditya/Todo-ch/issues) section for issues that need to be solved!
 - If you make a contribution, please do not forget to add your personal details to the [CONTRIBUTORS.md](CONTRIBUTORS.md) file!
 
 ## *Technologies used*
@@ -21,7 +21,7 @@
     For example, run this command inside your terminal:
 
     ```bash
-    git clone https://github.com/<your-github-username>/ToDoList.git
+    git clone https://github.com/<your-github-username>/Todo-ch.git
     ```
 
     **Replace \<your-github-username\>!**
@@ -30,7 +30,7 @@
 - Before you make any changes, [keep your fork in sync](https://www.freecodecamp.org/news/how-to-sync-your-fork-with-the-original-git-repository/) to avoid merge conflicts:
 
     ```bash
-    git remote add upstream https://github.com/tusharnankani/ToDoList.git
+    git remote add upstream https://github.com/chilkaditya/Todo-ch.git
     git fetch upstream
     git pull upstream master
     git push
