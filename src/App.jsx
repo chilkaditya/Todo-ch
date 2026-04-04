@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react'
 import Header from './components/Header'
 import TodoForm from './components/TodoForm'
 import TodoList from './components/TodoList'
+import './styles/main.css'
 
 function App() {
   const [todos, setTodos] = useState([])
   const [theme, setTheme] = useState('standard')
 
-  // Load from localStorage
   useEffect(() => {
     const savedTodos = JSON.parse(localStorage.getItem('todos')) || []
     const savedTheme = localStorage.getItem('savedTheme') || 'standard'
@@ -17,12 +17,10 @@ function App() {
     document.body.className = savedTheme
   }, [])
 
-  // Save todos
   useEffect(() => {
     localStorage.setItem('todos', JSON.stringify(todos))
   }, [todos])
 
-  // Save theme
   useEffect(() => {
     localStorage.setItem('savedTheme', theme)
     document.body.className = theme
@@ -31,8 +29,16 @@ function App() {
   return (
     <div>
       <Header theme={theme} setTheme={setTheme} />
+
       <TodoForm setTodos={setTodos} />
-      <TodoList todos={todos} setTodos={setTodos} theme={theme} />
+
+      <div className="todo-box">
+        <TodoList
+          todos={todos}
+          setTodos={setTodos}
+          theme={theme}
+        />
+      </div>
     </div>
   )
 }

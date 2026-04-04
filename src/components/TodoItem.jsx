@@ -18,12 +18,12 @@ export default function TodoItem({ todo, todos, setTodos, theme }) {
     <div className={`todo ${theme}-todo ${todo.completed ? 'completed' : ''}`}>
       <li className="todo-item">{todo.text}</li>
 
-      <button className={`check-btn ${theme}-button`} onClick={toggleComplete}>
-        <i className="fas fa-check"></i>
+      <button className="check-btn" onClick={toggleComplete}>
+        ✔
       </button>
 
-      <button className={`delete-btn ${theme}-button`} onClick={deleteTodo}>
-        <i className="fas fa-trash"></i>
+      <button className="delete-btn" onClick={deleteTodo}>
+        🗑
       </button>
     </div>
   )

@@ -1,12 +1,19 @@
 import React from 'react'
-import ThemeSelector from './ThemeSelector'
 
-export default function Header({ theme, setTheme }) {
+export default function Header({ setTheme }) {
   return (
     <div id="header">
-      <ThemeSelector setTheme={setTheme} />
+
+      {/* Theme selectors */}
+      <div className="theme-container">
+        <div className="standard-theme theme-selector" onClick={() => setTheme('standard')} />
+        <div className="light-theme theme-selector" onClick={() => setTheme('light')} />
+        <div className="darker-theme theme-selector" onClick={() => setTheme('darker')} />
+      </div>
+
       <h1 id="title">Just do it.</h1>
       <p>{new Date().toLocaleString()}</p>
+
     </div>
   )
 }
