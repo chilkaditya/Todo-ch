@@ -11,7 +11,11 @@ export default function Header({ setTheme }) {
         <div className="darker-theme theme-selector" onClick={() => setTheme('darker')} />
       </div>
 
-      <h1 id="title">Just do it.</h1>
+      {/* Animated Title */}
+      <h1 id="title">
+        Just do it.<span className="cursor"></span>
+      </h1>
+
       <p>{new Date().toLocaleString()}</p>
 
     </div>

@@ -182,3 +182,42 @@
     border-right-color: var(--border);
   }
 }
+
+/* ===================== */
+/* ✨ TEXT ANIMATION */
+/* ===================== */
+
+#title {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid rgba(255, 255, 255, 0.75);
+
+  width: 0;
+  margin: 0 auto;
+
+  animation: typing 2s steps(12, end) forwards,
+             blink 0.8s infinite;
+}
+
+/* Typing effect */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 12ch;
+  }
+}
+
+/* Cursor blinking */
+@keyframes blink {
+  0% { border-color: rgba(255,255,255,0.75); }
+  50% { border-color: transparent; }
+  100% { border-color: rgba(255,255,255,0.75); }
+}
+
+/* Dark theme cursor tweak */
+.darker #title {
+  border-right: 3px solid #01394c;
+}
+
