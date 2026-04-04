@@ -1,0 +1,264 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BODY */
+body {
+  font-family: 'Work Sans', sans-serif;
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding-top: 80px; /* more breathing space */
+}
+
+/* THEMES */
+.standard {
+  background: linear-gradient(100deg, #575656, #062e3f);
+  color: #ffdfdb;
+}
+
+.light {
+  background: linear-gradient(100deg, #d4f1ff, #ffffff);
+  color: #1a150e;
+}
+
+.darker {
+  background: linear-gradient(100deg, #001214, #001f29);
+  color: white;
+}
+
+/* HEADER */
+#header {
+  text-align: center;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+#title {
+  font-size: 4.5rem;
+  margin-bottom: 12px;
+  letter-spacing: 2px;
+}
+
+#header p {
+  font-size: 1.1rem;
+  opacity: 0.8;
+}
+
+/* THEME SELECTOR */
+.theme-container {
+  position: absolute;
+  top: -10px;
+  right: -120px;
+  display: flex;
+  gap: 12px;
+}
+
+.theme-selector {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.theme-selector:hover {
+  transform: scale(1.2);
+}
+
+.standard-theme {
+  background: linear-gradient(100deg, #575656, #062e3f);
+}
+
+.light-theme {
+  background: linear-gradient(100deg, #d4f1ff, #ffffff);
+}
+
+.darker-theme {
+  background: linear-gradient(100deg, #001214, #001f29);
+}
+
+/* FORM */
+form {
+  display: flex;
+  justify-content: center;
+
+  width: 100%;
+  max-width: 650px;
+
+  margin-bottom: 30px; /* spacing below input */
+}
+
+form input {
+  flex: 1;
+  padding: 14px 16px;
+  font-size: 15px;
+
+  border-radius: 25px 0 0 25px;
+  border: none;
+  outline: none;
+}
+
+form button {
+  padding: 14px 22px;
+  border-radius: 0 25px 25px 0;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+/* TODO BOX (🔥 IMPROVED) */
+.todo-box {
+  width: 95%;
+  max-width: 650px; /* 🔥 wider */
+  height: 450px;
+
+  margin-top: 10px;
+
+  padding: 25px;
+
+  border-radius: 25px;
+
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(15px);
+
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+
+  overflow-y: auto;
+}
+
+/* SCROLLBAR */
+.todo-box::-webkit-scrollbar {
+  width: 6px;
+}
+
+.todo-box::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.4);
+  border-radius: 10px;
+}
+
+/* LIST */
+.todo-list {
+  list-style: none;
+}
+
+/* ITEM */
+.todo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin: 12px 0;
+  padding: 12px 18px;
+
+  border-radius: 30px;
+
+  font-size: 16px;
+
+  transition: 0.2s;
+}
+
+/* Hover effect */
+.todo:hover {
+  transform: scale(1.02);
+}
+
+/* THEMES */
+.standard-todo {
+  background: #1a1a1a;
+  color: white;
+}
+
+.light-todo {
+  background: #e0e0e0;
+  color: black;
+}
+
+.darker-todo {
+  background: #01394c;
+}
+
+/* TEXT */
+.todo-item {
+  flex: 1;
+  margin-right: 10px;
+}
+
+/* BUTTONS */
+.check-btn,
+.delete-btn {
+  margin-left: 8px;
+
+  border: none;
+  cursor: pointer;
+
+  width: 34px;
+  height: 34px;
+
+  border-radius: 50%;
+
+  font-size: 14px;
+}
+
+/* COMPLETED */
+.completed {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+/* ================= */
+/* 📱 RESPONSIVE */
+/* ================= */
+
+@media (max-width: 768px) {
+  #title {
+    font-size: 3rem;
+  }
+
+  .todo-box {
+    height: 380px;
+  }
+
+  .theme-container {
+    right: -60px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding-top: 40px;
+  }
+
+  #title {
+    font-size: 2.2rem;
+  }
+
+  form {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  form input,
+  form button {
+    border-radius: 20px;
+  }
+
+  .todo-box {
+    width: 95%;
+    height: 300px;
+    padding: 15px;
+  }
+
+  .theme-container {
+    position: static;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+}
