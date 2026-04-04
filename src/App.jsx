@@ -5,23 +5,19 @@ import TodoList from './components/TodoList'
 import './styles/main.css'
 
 function App() {
-  
   const [todos, setTodos] = useState(() => {
-  try {
-    const saved = localStorage.getItem('todos')
-    return saved ? JSON.parse(saved) : []
-  } catch {
-    return []
-  }
-})
+    try {
+      const saved = localStorage.getItem('todos')
+      return saved ? JSON.parse(saved) : []
+    } catch {
+      return []
+    }
+  })
 
   const [theme, setTheme] = useState('standard')
 
   useEffect(() => {
-    const savedTodos = JSON.parse(localStorage.getItem('todos')) || []
     const savedTheme = localStorage.getItem('savedTheme') || 'standard'
-
-    setTodos(savedTodos)
     setTheme(savedTheme)
     document.body.className = savedTheme
   }, [])
@@ -37,17 +33,19 @@ function App() {
 
   return (
     <div>
-      <Header theme={theme} setTheme={setTheme} />
+      <Header setTheme={setTheme} />
 
       <TodoForm setTodos={setTodos} />
 
-      <div className="todo-box">
-        <TodoList
-          todos={todos}
-          setTodos={setTodos}
-          theme={theme}
-        />
-      </div>
+      {todos.length > 0 && (
+        <div className="todo-box">
+          <TodoList
+            todos={todos}
+            setTodos={setTodos}
+            theme={theme}
+          />
+        </div>
+      )}
     </div>
   )
 }

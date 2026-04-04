@@ -13,7 +13,13 @@ export default function TodoForm({ setTodos }) {
 
     setTodos(prev => [
       ...prev,
-      { id: Date.now(), text: input, completed: false }
+      {
+        id: Date.now(),
+        text: input,
+        completed: false,
+        createdAt: new Date().toISOString(),
+        completedAt: null
+      }
     ])
 
     setInput('')
