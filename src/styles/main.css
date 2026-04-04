@@ -14,7 +14,7 @@ body {
   flex-direction: column;
   align-items: center;
 
-  padding-top: 80px; /* more breathing space */
+  padding-top: 80px;
 }
 
 /* THEMES */
@@ -40,10 +40,28 @@ body {
   position: relative;
 }
 
+/* 🔥 TITLE ANIMATION (FLOAT + GLOW) */
 #title {
   font-size: 4.5rem;
   margin-bottom: 12px;
   letter-spacing: 2px;
+
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+    text-shadow: 0 0 10px rgba(255,255,255,0.2);
+  }
+  50% {
+    transform: translateY(-10px);
+    text-shadow: 0 0 25px rgba(255,255,255,0.5);
+  }
+  100% {
+    transform: translateY(0px);
+    text-shadow: 0 0 10px rgba(255,255,255,0.2);
+  }
 }
 
 #header p {
@@ -89,18 +107,15 @@ body {
 form {
   display: flex;
   justify-content: center;
-
   width: 100%;
   max-width: 650px;
-
-  margin-bottom: 30px; /* spacing below input */
+  margin-bottom: 30px;
 }
 
 form input {
   flex: 1;
   padding: 14px 16px;
   font-size: 15px;
-
   border-radius: 25px 0 0 25px;
   border: none;
   outline: none;
@@ -114,14 +129,13 @@ form button {
   font-weight: 500;
 }
 
-/* TODO BOX (🔥 IMPROVED) */
+/* TODO BOX */
 .todo-box {
   width: 95%;
-  max-width: 650px; /* 🔥 wider */
+  max-width: 650px;
   height: 450px;
 
   margin-top: 10px;
-
   padding: 25px;
 
   border-radius: 25px;
@@ -132,6 +146,9 @@ form button {
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 
   overflow-y: auto;
+
+  /* ✨ smooth appearance */
+  animation: fadeIn 0.3s ease;
 }
 
 /* SCROLLBAR */
@@ -161,11 +178,10 @@ form button {
   border-radius: 30px;
 
   font-size: 16px;
-
   transition: 0.2s;
 }
 
-/* Hover effect */
+/* Hover */
 .todo:hover {
   transform: scale(1.02);
 }
@@ -185,17 +201,32 @@ form button {
   background: #01394c;
 }
 
+/* CONTENT (🔥 NEW FOR DATES) */
+.todo-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
 /* TEXT */
 .todo-item {
-  flex: 1;
+  margin-bottom: 4px;
   margin-right: 10px;
+}
+
+/* 🗓 DATES (NEW FEATURE) */
+.todo-dates {
+  font-size: 11px;
+  opacity: 0.7;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
 /* BUTTONS */
 .check-btn,
 .delete-btn {
   margin-left: 8px;
-
   border: none;
   cursor: pointer;
 
@@ -203,7 +234,6 @@ form button {
   height: 34px;
 
   border-radius: 50%;
-
   font-size: 14px;
 }
 
@@ -211,6 +241,18 @@ form button {
 .completed {
   text-decoration: line-through;
   opacity: 0.5;
+}
+
+/* ✨ FADE ANIMATION */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ================= */

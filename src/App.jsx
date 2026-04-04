@@ -16,19 +16,16 @@ function App() {
 
   const [theme, setTheme] = useState('standard')
 
-  // Load theme
   useEffect(() => {
     const savedTheme = localStorage.getItem('savedTheme') || 'standard'
     setTheme(savedTheme)
     document.body.className = savedTheme
   }, [])
 
-  // Save todos
   useEffect(() => {
     localStorage.setItem('todos', JSON.stringify(todos))
   }, [todos])
 
-  // Save theme
   useEffect(() => {
     localStorage.setItem('savedTheme', theme)
     document.body.className = theme
@@ -40,7 +37,6 @@ function App() {
 
       <TodoForm setTodos={setTodos} />
 
-      {/* ✅ SHOW ONLY WHEN TODOS EXIST */}
       {todos.length > 0 && (
         <div className="todo-box">
           <TodoList
